@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aplikasi Persediaan & Penjualan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      width: calc(100% - 22px);
+      font-size: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #218838;
+    }
+
+    .btn-sell {
+      background-color: #ffc107;
+      color: black;
+    }
+
+    .btn-sell:hover {
+      background-color: #e0a800;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Persediaan & Penjualan Barang</h2>
+    <input type="text" id="namaBarang" placeholder="Nama Barang">
+    <input type="number" id="stokBarang" placeholder="Jumlah Stok">
+    <button class="btn" onclick="tambahBarang()">Tambah Barang</button>
+
+    <div class="section">
+      <h3>Daftar Stok</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama Barang</th>
+            <th>Stok</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="tabelBarang">
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h3>Riwayat Penjualan</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama Barang</th>
+            <th>Jumlah</th>
+            <th>Waktu</th>
+          </tr>
+        </thead>
+        <tbody id="riwayatPenjualan">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    let daftarBarang = [];
+    let riwayat = [];
+
+    function renderTabel() {
+      const tabel = document.getElementById('tabelBarang');
+      tabel.innerHTML = '';
+
+      daftarBarang.forEach((barang, index) => {
+        tabel.innerHTML += `
+          <tr>
+            <td>${barang.nama}</td>
+            <td>${barang.stok}</td>
+            <td>
+              <button class="btn-sell" onclick="jualBarang(${index})">Jual 1</button>
+            </td>
+          </tr>
+        `;
+      });
+    }
+
+    function renderRiwayat() {
+      const riwayatTable = document.getElementById('riwayatPenjualan');
+      riwayatTable.innerHTML = '';
+
+      riwayat.forEach(entry => {
+        riwayatTable.innerHTML += `
+          <tr>
+            <td>${entry.nama}</td>
+            <td>1</td>
+            <td>${entry.waktu}</td>
+          </tr>
+        `;
+      });
+    }
+
+    function tambahBarang() {
+      const nama = document.getElementById('namaBarang').value;
+      const stok = parseInt(document.getElementById('stokBarang').value);
+
+      if (nama && stok > 0) {
+        daftarBarang.push({ nama: nama, stok: stok });
+        renderTabel();
+        document.getElementById('namaBarang').value = '';
+        document.getElementById('stokBarang').value = '';
+      } else {
+        alert('Masukkan nama barang dan stok yang benar!');
+      }
+    }
+
+    function jualBarang(index) {
+      if (daftarBarang[index].stok > 0) {
+        daftarBarang[index].stok--;
+
+        const now = new Date();
+        const waktu = now.toLocaleString('id-ID');
+
+        riwayat.push({
+          nama: daftarBarang[index].nama,
+          waktu: waktu
+        });
+
+        renderTabel();
+        renderRiwayat();
+      } else {
+        alert('Stok habis!');
+      }
+    }
+  </script>
+</body>
+</html>

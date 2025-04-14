@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSO Universitas Diponegoro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        .logo img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-login {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-reset {
+            background: #ef4444;
+            color: white;
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2563eb;
+            display: block;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo-undip.png" alt="Logo Universitas Diponegoro">
+        </div>
+        <h2>Single Sign On (SSO)</h2>
+        <p>Universitas Diponegoro</p>
+        <input type="text" placeholder="NIM/NIP/username/e-mail official Undip">
+        <button class="btn btn-login">Login</button>
+        <button class="btn btn-reset">Reset Password</button>
+        <a href="#">Daftar sekarang!</a>
+        <a href="#">Pendaftaran alumni klik disini</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Laporan Keuangan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
+      margin: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .logo img {
+      height: 80px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #0077cc;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #eaf4ff;
+    }
+
+    tr:hover {
+      background-color: #d0ebff;
+    }
+
+    .total-row td {
+      font-weight: bold;
+      background-color: #cce5ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <!-- Ganti 'logo.png' dengan path gambar/logo kamu -->
+      <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-simple-coffee-cup-logo-png-image_5225202.jpg" alt="Logo Perusahaan">
+    </div>
+
+    <h2>Laporan Keuangan Bulanan</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Tanggal</th>
+          <th>Deskripsi</th>
+          <th>Pendapatan (Rp)</th>
+          <th>Pengeluaran (Rp)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01/04/2025</td>
+          <td>Penjualan Produk A</td>
+          <td>5.000.000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>02/04/2025</td>
+          <td>Pembelian Bahan Baku</td>
+          <td></td>
+          <td>1.500.000</td>
+        </tr>
+        <tr>
+          <td>03/04/2025</td>
+          <td>Penjualan Produk B</td>
+          <td>3.000.000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>04/04/2025</td>
+          <td>Biaya Operasional</td>
+          <td></td>
+          <td>750.000</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="2">Total</td>
+          <td>8.000.000</td>
+          <td>2.250.000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
